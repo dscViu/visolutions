@@ -13,11 +13,13 @@ The App Script methods specific to Google spreadsheets are described [here](http
 
 ## Back end methods
 ### Append  
-#### `append(object obj)`  
+__`append(object obj)`__  
   
-Append extracts the data from obj and adds the data to the corresponding column in the sheet.   
+__Extracts the data from obj and adds the data to the corresponding column in the sheet.__  
 
-Obj should have the member variables below. 
+#### Parameters
+Append takes one parameter, an object (referred here as `obj`)    
+The object should have the member variables below.  
 
 | Variable Name  | Spreadheet Header |
 | ------------- | ------------- |
@@ -31,7 +33,7 @@ Obj should have the member variables below.
 | obj.transferExposure | Energy/  Harm Transfer Exposure |
 | obj.numTargets | # of Targets | 
 | obj.fatalityFactor | Fatality Factor |
-
+  
 
 __Example__
 
