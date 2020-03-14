@@ -1,0 +1,113 @@
+<script>
+//force reload the page (ie: prevent cache for this page) 
+function reloadThePage(){
+    window.location.reload();
+} 
+</script>
+
+<!-- Materialize Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<script>
+    /*
+    //intialize collapsible
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems);
+    });
+    */
+  
+    /*
+      WARNING: The 'dropDowns' dictionary definition CANNOT be placed 
+      in the same scope as the initialization of its elements. 
+      Otherwise the 'select' elements it uses will not be initialized!
+    */
+    
+    //'dropDowns' object will hold all dropdowns
+    //to allow to quickly iterate through .value and .selectedIndex properties
+    //ie: reset all selectedIndex to 0 
+    var dropDowns = 
+    { 
+      hazard_source_dropdown: document.getElementById("hazard_source_dropdown"),
+      hazard_stage_dropdown: document.getElementById("hazard_stage_dropdown"),
+      harmSrc_dropdown: document.getElementById("harmSrc_dropdown"),
+      duration_dropdown: document.getElementById("duration_dropdown"),
+      frequency_dropdown: document.getElementById("frequency_dropdown"),
+      probability_dropdown: document.getElementById("probability_dropdown"),
+      severity_dropdown: document.getElementById("severity_dropdown")
+    };
+    
+    //Text input fields objects
+    var txtInput = 
+    { 
+      transferExposure_input : document.getElementById("transferExposure_input"),
+      numTargets_input : document.getElementById("numTargets_input"),
+      fatalityFactor_input : document.getElementById("fatalityFactor_input")
+    };
+
+  //initializing Materialize 'select' elements
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+
+
+  //on 'Submit', run capture_harmData
+  //which sends data to be appended to sheet 
+  document.getElementById("submitHarm_btn").addEventListener("click",capture_harmData);
+  
+  
+  
+  function capture_harmData() { 
+    //this object will be passed to code.gs script function, as an array
+    //its elements are the individual cells to be appended 
+    var harmData = {}; 
+    harmData.hazard_source = dropDowns.hazard_source_dropdown.value;
+    harmData.hazard_stage = dropDowns.hazard_stage_dropdown.value;  
+    harmData.harmSrc = dropDowns.harmSrc_dropdown.value;   
+    
+    harmData.duration = dropDowns.duration_dropdown.value;   
+    harmData.frequency = dropDowns.frequency_dropdown.value;   
+    harmData.probability = dropDowns.probability_dropdown.value;   
+    harmData.severity = dropDowns.severity_dropdown.value;   
+    
+    harmData.transferExposure = txtInput.transferExposure_input.value;
+    harmData.numTargets = txtInput.numTargets_input.value; 
+    harmData.fatalityFactor = txtInput.fatalityFactor_input.value; 
+    
+    //calling functions in the back end 
+    google.script.run.append(harmData);
+    
+    
+    
+    /*
+      Reseting ALL dropDowns. 
+      Iterating through dropDowns object
+    */
+    var dropDownsList = Object.values(dropDowns);
+    for (var i =0; i<dropDownsList.length; i++) {
+      dropDownsList[i].selectedIndex = 0;
+      M.FormSelect.init(dropDownsList[i]);
+    }
+
+    /*
+      Reseting ALL text input fields. 
+      Iterating through dropDowns object
+      nb: input fields dont need initialization
+    */
+    var txtInputList = Object.values(txtInput);
+    for (var i =0; i<txtInputList.length; i++) {
+      txtInputList[i].value = '';
+    }
+    
+    
+    /*
+    var hazard_source = document.getElementById("hazard_source_dropdown");
+    hazard_source.selectedIndex = 0;
+    M.FormSelect.init(hazard_source);
+    */
+  }
+
+</script>
+      
