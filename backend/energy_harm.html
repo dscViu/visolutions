@@ -1,0 +1,200 @@
+/* 
+  This file was the original proof of concept for entering data in the appropriate columns to the worksheet. 
+  It displays 'select' dropdown elements and free text 'input' fields to capture the data.
+  
+  Next the 'include' function (defined in 'code.gs'), imports the scripts in 'carbon-js.html'.
+  On click of the submit button, the JavaScript in file 'carbon-js.html' captures the values of the 'select', and 'input' elements
+    as member variables of a single objects, and then call the 'append' function (defined in 'code.gs') to pass that object 
+    to the main file.
+  
+  The 'append' function does the writing to the sheet.
+*/
+
+<!DOCTYPE html>
+  <html>
+   <head>
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+
+  <body>
+    
+    <!-- Select - HazardSource -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="hazard_source_dropdown">
+        
+          <option value="" disabled selected>Choose your option</option>
+          
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=id_range.getNumRows();i++){ ?>
+            <option> <?= id_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>
+        
+        </select>
+        <label>Energy/Harm source</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+ 
+ 
+    <!-- Select - Hazard Stage/ Occurrence -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="hazard_stage_dropdown">
+        
+          <option value="" disabled selected>Choose your option</option>
+          
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=hazardStage_range.getNumRows();i++){ ?>
+            <option> <?= hazardStage_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>
+        
+        </select>
+        <label>Hazard Stage/Occurrence </label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+ 
+  
+    <!-- Select - Energy/ Harm Source -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="harmSrc_dropdown">
+        
+          <option value="" disabled selected>Choose your option</option>
+          
+            <!-- optgroup Energy -->
+            <optgroup label="<?= srcEnergy_range.getCell(1,1).getValue(); ?>" > 
+              <? for(var i=2; i<=srcEnergy_range.getNumRows();i++){ ?>
+                <option> <?= srcEnergy_range.getCell(i,1).getValue(); ?> </option>            
+              <? } ?>              
+            </optgroup>
+            
+            <!-- optgroup Harm -->
+            <optgroup label="<?= srcHarm_range.getCell(1,1).getValue(); ?>" >  
+              <? for(var i=2; i<=srcHarm_range.getNumRows();i++){ ?>
+                <option> <?= srcHarm_range.getCell(i,1).getValue(); ?> </option>            
+              <? } ?>
+            </optgroup>
+        </select>
+        <label>Energy/ Harm Source </label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+    
+     
+   
+    <!-- Select - Energy/Harm Transfer Exposure -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <input id="transferExposure_input" type="text" class="validate">
+          <label for="transferExposure_input">Energy/Harm Transfer Exposure</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+
+
+
+    <!-- Text input: # of Targets -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <input id="numTargets_input" type="text" class="validate">
+          <label for="numTargets_input">Number of Targets</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+    
+    
+    
+    <!-- Select - Duration Energy/ Harm Exposure -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="duration_dropdown">
+          <option value="" disabled selected>Choose your option</option>
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=duration_range.getNumRows();i++){ ?>
+            <option> <?= duration_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>        
+        </select>
+        <label>Duration Energy/ Harm Exposure</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+
+
+
+    <!-- Select - Frequency of Energy/ Harm Exposure -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="frequency_dropdown">
+          <option value="" disabled selected>Choose your option</option>
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=frequency_range.getNumRows();i++){ ?>
+            <option> <?= frequency_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>        
+        </select>
+        <label>Frequency of Energy/ Harm Exposure</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+    
+    
+     
+    <!-- Select - Probability of Exposure  -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="probability_dropdown">
+          <option value="" disabled selected>Choose your option</option>
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=probability_range.getNumRows();i++){ ?>
+            <option> <?= probability_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>        
+        </select>
+        <label>Probability of Exposure</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->  
+    
+    
+    
+    <!-- Select: Severity -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <select id="severity_dropdown">
+          <option value="" disabled selected>Choose your option</option>
+          <!-- loop through id_range to populate list --> 
+          <? for(var i=1; i<=severity_range.getNumRows();i++){ ?>
+            <option> <?= severity_range.getCell(i,1).getValue(); ?> </option>            
+          <? } ?>        
+        </select>
+        <label>Severity</label>
+      </div>
+    </div>  <!-- CLOSE ROW --> 
+    
+    
+    
+    <!-- Text input: Fatality Factor -->
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <input id="fatalityFactor_input" type="text" class="validate">
+          <label for="fatalityFactor_input">Fatality Factor</label>
+      </div>
+    </div>  <!-- CLOSE ROW -->
+    
+    
+    
+    
+    
+    
+    
+ 
+ 
+    <!-- Submit btn-->
+    <div class="row">
+      <button id="submitHarm_btn" class="btn waves-effect waves-light col s2 offset-s6" type="submit" name="action">Submit
+        <i class="material-icons right">navigate_next</i>
+      </button>
+    </div>  <!-- CLOSE ROW -->
+    
+    
+    <!-- include js -->
+    <?!= include("carbon-js"); ?> 
+  </body>
+  </html>
