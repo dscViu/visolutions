@@ -11,6 +11,8 @@
 
 
 //Spreadsheet to use
+// NOTE: The ID is the URL as such: 
+// https://docs.google.com/spreadsheets/d/the_ID_is_here
 var id = "130NXD5xI5uYN-8ij1_RCY_-VLcy5o8U_c9-sneit7JE";  
 var riskReg_ss = SpreadsheetApp.openById(id);
 //select worsheet (tab) named Detailed
@@ -28,6 +30,7 @@ var detailed_ws = riskReg_ss.getSheetByName("Detailed");
 */
 
 //include function used to insert other files dynamically via include call
+//expect HTML file extension
 function include(filename) {
   return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
@@ -42,6 +45,8 @@ function doGet() {
 
   
   // spreadsheet named ranges
+  // These variables can be called from the rendered page. 
+  // ie: 'energy_harm.html' can use 'id.range'
   page.id_range = riskReg_ss.getRangeByName('ID');
   page.hazardStage_range = riskReg_ss.getRangeByName('HazardStage'); 
   page.srcEnergy_range = riskReg_ss.getRangeByName('Source_Energy'); 
@@ -133,7 +138,7 @@ function append(harmData){
 
 /*
 
-__________________________________________________
+
 EVERYTHING BELOW IS NOT USED AND SHOULD BE DELETED 
 ___________________________________________________
 

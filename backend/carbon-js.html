@@ -17,8 +17,9 @@ function reloadThePage(){
       var instances = M.Collapsible.init(elems);
     });
     */
-    
-    //'dropDowns' object will hold all select dropdowns
+  
+
+    //'dropDowns' object will hold all dropdowns
     //to allow to quickly iterate through .value and .selectedIndex properties
     //ie: reset all selectedIndex to 0 
     var dropDowns = 
@@ -32,7 +33,7 @@ function reloadThePage(){
       severity_dropdown: document.getElementById("severity_dropdown")
     };
     
-    //Text input fields objects, same as 'dropDowns'
+    //Text input fields objects
     var txtInput = 
     { 
       transferExposure_input : document.getElementById("transferExposure_input"),
@@ -46,9 +47,12 @@ function reloadThePage(){
     var instances = M.FormSelect.init(elems);
   });
 
-  //on 'Submit', run 'capture_harmData' function (defined below)
+
+  //on 'Submit', run capture_harmData
   //which sends data to be appended to sheet 
   document.getElementById("submitHarm_btn").addEventListener("click",capture_harmData);
+  
+  
   
   function capture_harmData() { 
     //this object will be passed to code.gs script function, as an array
@@ -57,7 +61,6 @@ function reloadThePage(){
     harmData.hazard_source = dropDowns.hazard_source_dropdown.value;
     harmData.hazard_stage = dropDowns.hazard_stage_dropdown.value;  
     harmData.harmSrc = dropDowns.harmSrc_dropdown.value;   
-    
     harmData.duration = dropDowns.duration_dropdown.value;   
     harmData.frequency = dropDowns.frequency_dropdown.value;   
     harmData.probability = dropDowns.probability_dropdown.value;   
@@ -92,9 +95,8 @@ function reloadThePage(){
       txtInputList[i].value = '';
     }
     
-      
+    
     /*
-    //reset of single 'select' element
     var hazard_source = document.getElementById("hazard_source_dropdown");
     hazard_source.selectedIndex = 0;
     M.FormSelect.init(hazard_source);
