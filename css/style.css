@@ -1,0 +1,76 @@
+/*
+ * This is the custom css file, most of it will be over riding
+ * the materialize code
+ *
+ * Hex colors that the parent website is using
+ * Dark Background: #333333
+ * Gold accent: #c4a55c
+ * */
+
+.carbonsafety-primary-background {
+  background-color: #333333 !important;
+}
+
+.carbonsafety-accent-text {
+  color: #c4a55c !important;
+}
+
+.carbonsafety-accent-background {
+  background-color: #c4a55c !important;
+}
+
+/*we need to override the container and switch to rem measurements*/
+.container {
+  margin: 0 auto;
+  max-width: 68rem;
+  width: 90%;
+}
+
+/* * Overide the navbar height to better fit the logo in */
+nav.nav-extended {
+  height: 6rem !important;
+}
+
+/* center the links */
+nav ul a {
+  padding-top: .7rem !important;
+  padding-bottom: .7rem !important;
+}
+
+/* center the mobile menu icon  */
+nav .sidenav-trigger i {
+  margin-top: 1rem;
+}
+
+/* Remove the border that shows up when a user clicks on the clickable carbon atoms */
+img[usemap], map, area {
+  outline: none;
+}
+
+/* fit the carbon atom picture in the view port */
+fit-image {
+  background: no-repeat center fixed;
+  background-size: cover;
+}
+
+
+/*
+ * Media queries
+ */
+/* Extra small devices (phones, 600px and down) */
+/*
+ *@media only screen and (max-width: 600px) {}
+ *
+ *[> Small devices (portrait tablets and large phones, 600px and up) <]
+ *@media only screen and (min-width: 600px) {...}
+ *
+ *[> Medium devices (landscape tablets, 768px and up) <]
+ *@media only screen and (min-width: 768px) {...}
+ *
+ *[> Large devices (laptops/desktops, 992px and up) <]
+ *@media only screen and (min-width: 992px) {...}
+ */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*@media only screen and (min-width: 1200px) {}*/
+
