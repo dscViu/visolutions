@@ -54,6 +54,7 @@ __Example__
     //calling append function with harmData object  
     google.script.run.append(harmData);
     
+  }
     
  ```
  
