@@ -47,13 +47,6 @@ img[usemap], map, area {
   outline: none;
 }
 
-/* fit the carbon atom picture in the view port */
-fit-image {
-  background: no-repeat center fixed;
-  background-size: cover;
-}
-
-
 /*
  * Media queries
  */
