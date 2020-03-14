@@ -7,7 +7,8 @@ A digital front for a local business
 
 ## App Script 
 This code runs in [Google App Script](https://developers.google.com/apps-script).   
-The file should be ran from within an App Script project. Create an App Script project [here](https://script.google.com/)    
+The files should be ran from within an App Script project.  
+Create an App Script project [here](https://script.google.com/)    
 The App Script methods specific to Google spreadsheets are described [here](https://developers.google.com/apps-script/reference/spreadsheet)   
 
 ## Back end methods
