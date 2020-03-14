@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--custom css-->
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <nav class="nav-extended carbonsafety-primary-background">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a nohref="#!" class="brand-logo center"><img class="responsive-img" src="img/carbon-safety-logo-trans.png" width="175" height="auto" alt="Carbon Safety"></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="http://carbonsafety.ca/">Carbon Safety</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="http://carbonsafety.ca/">Carbon Safety</a></li>
+    </ul>
+
+    <!-- End nav bar start actual content -->
+    <section class="container">
+      <h2>Keep content within the container, test dynamic menu designs here</h2>
+
+
+
+
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer carbonsafety-primary-background">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Carbon Solutions</h5>
+            <p class="grey-text text-lighten-4">Write something about the company here</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Maybe quick links to other usefull websites</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Something customer should know</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Something customer should know</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Something customer should know</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Something customer should know</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2020 Carbon Safety Ltd. All rights reserved. 
+          <a class="grey-text text-lighten-4 right" href="#!">Other links to usefull important relavent information</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Add Jquery cdn before materialize -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- add custom responsive image mapping code -->
+    <script src="js/jquery.rwdImageMaps.min.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- Custom javascript -->
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <!-- We need this Jquery snippet here to call the side nav -->
+    <script>
+      $(document).ready(function() {
+        $('.sidenav').sidenav();
+      });
+    </script>
+
+    <!-- This Jquery call is for the responsive image mapping -->
+    <script>
+      $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+      });
+    </script>
+  </body>
+</html>
