@@ -20,6 +20,7 @@ __Extracts the data from obj and adds the data to the corresponding column in th
 #### Parameters
 Append takes one parameter, an object (referred here as `obj`)    
 The object should have the member variables below.  
+These should store the _value_ of the __input__ and __select__ elements   
 
 | Variable Name  | Spreadheet Header |
 | ------------- | ------------- |
