@@ -17,14 +17,8 @@ function reloadThePage(){
       var instances = M.Collapsible.init(elems);
     });
     */
-  
-    /*
-      WARNING: The 'dropDowns' dictionary definition CANNOT be placed 
-      in the same scope as the initialization of its elements. 
-      Otherwise the 'select' elements it uses will not be initialized!
-    */
     
-    //'dropDowns' object will hold all dropdowns
+    //'dropDowns' object will hold all select dropdowns
     //to allow to quickly iterate through .value and .selectedIndex properties
     //ie: reset all selectedIndex to 0 
     var dropDowns = 
@@ -38,7 +32,7 @@ function reloadThePage(){
       severity_dropdown: document.getElementById("severity_dropdown")
     };
     
-    //Text input fields objects
+    //Text input fields objects, same as 'dropDowns'
     var txtInput = 
     { 
       transferExposure_input : document.getElementById("transferExposure_input"),
@@ -52,12 +46,9 @@ function reloadThePage(){
     var instances = M.FormSelect.init(elems);
   });
 
-
-  //on 'Submit', run capture_harmData
+  //on 'Submit', run 'capture_harmData' function (defined below)
   //which sends data to be appended to sheet 
   document.getElementById("submitHarm_btn").addEventListener("click",capture_harmData);
-  
-  
   
   function capture_harmData() { 
     //this object will be passed to code.gs script function, as an array
@@ -101,8 +92,9 @@ function reloadThePage(){
       txtInputList[i].value = '';
     }
     
-    
+      
     /*
+    //reset of single 'select' element
     var hazard_source = document.getElementById("hazard_source_dropdown");
     hazard_source.selectedIndex = 0;
     M.FormSelect.init(hazard_source);
