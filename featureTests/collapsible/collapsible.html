@@ -12,7 +12,7 @@
     <div class="container">
 
       <!--Activity ul-->
-      <ul class="collapsible exapandable">
+      <ul class="collapsible popout">
         <li>
           <div class="collapsible-header">
             <i class="material-icons">filter_drama</i>Activity 1
@@ -22,31 +22,33 @@
               <div class="col s12 m12">
 
                 <!--Task ul-->
-                <ul class="collapsible exapandable">
+                <ul class="collapsible popout">
                   <li>
                     <div class="collapsible-header">
                       <i class="material-icons">flash_on</i>
                       Task 1
                     </div>
                     <div class="collapsible-body">
-
-
                       <!-- begin hazards ul -->
                       <ul id="hazardList" class="collection">
                         <li class="collection-item avatar">
                           <!--need to replace image here with material icon-->
                           <i class="material-icons circle orange">warning</i>
-                          <span class="title">Title</span>
-                          <p>First Line <br>
-                            Second Line
+                          <span class="title">Enter Hazard Name</span>
+                          <p> 
+                            <br>
+                            Enter additional info or meta data
                           </p>
-                          <a nohref="" class="secondary-content">
-                            <i class="material-icons">check</i>
+                          <a class="delete-hazzard secondary-content waves-effect waves-red btn-flat" title="Delete Hazzard">
+                            <i class="material-icons">delete</i>
                           </a>
                         </li>
+
                       </ul>
                       <!-- end hazard ul-->
-
+                      <a id="create-hazard" class="waves-effect waves-green btn-flat" title="Add Hazzard">
+                        <i class="material-icons">add</i>
+                      </a>
                     </div>
                   </li>
                 </ul>
@@ -63,6 +65,7 @@
           </div>
           <div class="collapsible-body">
             <span>Lorem ipsum dolor sit amet.</span>
+            <!--task code goes inside collapsible-body div-->
           </div>
         </li>
         <li>
@@ -72,16 +75,45 @@
           </div>
           <div class="collapsible-body">
             <span>Lorem ipsum dolor sit amet.</span>
+            <!--task code goes inside collapsible-body div-->
           </div>
         </li>
       </ul>
       <!--End Activity ul-->
 
-      <!--Add activity button-->
-      <button id='button1' class="btn waves-effect waves-light green right" type="submit" name="action">
-        Add Activity
-        <i class="material-icons right">send</i>
-      </button>
+
+
+      <!--
+        Floating Button must stay at the bottom 
+        Add, update, delete activity toolbar
+      -->
+      <div class="fixed-action-btn toolbar direction-top">
+        <a class="btn-floating btn-large grey darken-2">
+          <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+          <li>
+            <a class="waves-effect waves-light green" title="Add Activity">
+              <i class="material-icons">add</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light orange lighten-2" title="Edit Activity">
+              <i class="material-icons">edit</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light red" title="Delete Activity">
+              <i class="material-icons">delete</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light grey darken-2" title="Close Menu">
+              <i class="material-icons">menu</i>
+            </a>
+          </li>
+        </ul>
+      </div>
 
     </div> <!-- end container-->
 
@@ -89,7 +121,7 @@
     <!-- include js -->
     <!-- Materialize Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
     <!--link custom javascript-->
     <script src="collapsible.js"></script>
     <script src="material-script.js"></script>
