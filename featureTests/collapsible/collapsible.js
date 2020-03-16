@@ -2,29 +2,33 @@
 
 
 
-document.getElementById("button1").addEventListener("click",addHazard);
+document.getElementById("create-hazard").addEventListener("click", addHazard);
 
 
 
 function addHazard () {
   var hazardList = document.getElementById('hazardList');
-  var haz1 = 'fire';
-  var haz2 = 'electricity';
+  var hazardTitle = 'Fire';
+  var hazardBody = 'additional info or meta data';
 
   var newHazard = '<li class="collection-item avatar">'+
     '<i class="material-icons circle orange">warning</i>'+
     '<span class="title">' +
-    haz1 +
-    '</span>'+
-    '<p>'+
-    haz2 + 
-    '<br> Second Line </p>'+
-    '<a nohref="" class="secondary-content">'+
-    '<i class="material-icons">check</i></a></li>';
+    hazardTitle + 
+    '</span>' +
+    '<p> <br>' + 
+    hazardBody + 
+    '</p> <a class="secondary-content waves-effect waves-red btn-flat" title="Delete Hazzard">' +
+    '<i class="material-icons">delete</i>' +
+    '</a></li>';
 
   hazardList.innerHTML += newHazard;
 
 
-  //     hazardList.createElement('Li');
+  //   hazardList.createElement('Li');
   //	 innerHTML(newHazard); 
+}
+
+function deleteHazard() {
+  alert('Delete Hazard Function Called');
 }
