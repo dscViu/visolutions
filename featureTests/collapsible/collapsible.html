@@ -9,79 +9,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
   <body>
+    <div class="container">
 
-    <ul class="collapsible">
-      <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Activity 1</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="col s12 m12">
-              <ul class="collapsible">
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Task 1</div>
+      <!--Activity ul-->
+      <ul class="collapsible exapandable">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>Activity 1
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s12 m12">
 
-                  <div class="collapsible-body">
-
-                    <!-- <span>Lorem ipsum dolor sit amet.</span> -->
-
-
-
-                    <!-- begin hazards -->
-                    <ul id="hazardList" class="collection">
-
-                      <li class="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" class="circle">
-                        <span class="title">Title</span>
-                        <p>First Line <br>
-                          Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i>
-                        </a>
-                      </li>
+                <!--Task ul-->
+                <ul class="collapsible exapandable">
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">flash_on</i>
+                      Task 1
+                    </div>
+                    <div class="collapsible-body">
 
 
-                      <li class="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" class="circle">
-                        <span class="title">Title</span>
-                        <p>First Line <br>
-                          Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i>
-                        </a>
-                      </li>
+                      <!-- begin hazards ul -->
+                      <ul id="hazardList" class="collection">
+                        <li class="collection-item avatar">
+                          <!--need to replace image here with material icon-->
+                          <i class="material-icons circle orange">warning</i>
+                          <span class="title">Title</span>
+                          <p>First Line <br>
+                            Second Line
+                          </p>
+                          <a nohref="" class="secondary-content">
+                            <i class="material-icons">check</i>
+                          </a>
+                        </li>
+                      </ul>
+                      <!-- end hazard ul-->
 
+                    </div>
+                  </li>
+                </ul>
+                <!--End Task ul-->
 
-                    </ul>
-                    <!-- end hazard-->
+              </div>
+            </div>    
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>
+            Second
+          </div>
+          <div class="collapsible-body">
+            <span>Lorem ipsum dolor sit amet.</span>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>
+            Third
+          </div>
+          <div class="collapsible-body">
+            <span>Lorem ipsum dolor sit amet.</span>
+          </div>
+        </li>
+      </ul>
+      <!--End Activity ul-->
 
+      <!--Add activity button-->
+      <button id='button1' class="btn waves-effect waves-light green right" type="submit" name="action">
+        Add Activity
+        <i class="material-icons right">send</i>
+      </button>
 
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>    
-        </div>
-      </li>
-      <li>
-        <div class="com llapsible-header"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-    </ul>
-
-    <button id='button1' class="btn waves-effect waves-light" type="submit" name="action">Submit
-      <i class="material-icons right">send</i>
-    </button>
-
-
+    </div> <!-- end container-->
 
 
     <!-- include js -->
     <!-- Materialize Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--link custom javascript-->
     <script src="collapsible.js"></script>
+    <script src="material-script.js"></script>
   </body>
 </html>
