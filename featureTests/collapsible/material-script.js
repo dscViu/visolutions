@@ -8,7 +8,7 @@ function reloadThePage(){
 //initialize collapsible
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.collapsible');
-  options = {
+  var options = {
     accordion: false 
   }
   var instances = M.Collapsible.init(elems, options);
@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // initialize floating action button
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.fixed-action-btn');
-  var instances = M.FloatingActionButton.init(elems);
+  var options = {
+    toolbarEnabled: true
+  }
+  var instances = M.FloatingActionButton.init(elems, options);
 });
 
