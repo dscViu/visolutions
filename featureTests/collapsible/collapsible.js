@@ -18,7 +18,8 @@ function addHazard () {
     '</span>' +
     '<p> <br>' + 
     hazardBody + 
-    '</p> <a class="secondary-content waves-effect waves-red btn-flat" title="Delete Hazzard">' +
+    '</p> <a onclick="deleteHazard(this.parentElement)" ' + //pass the parent LI element to be deleted on click
+    'class="secondary-content waves-effect waves-red btn-flat" title="Delete Hazzard">' +
     '<i class="material-icons">delete</i>' +
     '</a></li>';
 
@@ -29,6 +30,9 @@ function addHazard () {
   //	 innerHTML(newHazard); 
 }
 
-function deleteHazard() {
-  alert('Delete Hazard Function Called');
+
+//when the delete button is clicked,
+//the associated LI element is removed
+function deleteHazard(child) {
+    child.parentElement.removeChild(child);
 }
